@@ -1,0 +1,271 @@
+.annotation-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+
+.annotation-header {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.annotation-header .header-content {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.paper-progress {
+  font-weight: 500;
+  color: #666;
+}
+
+.save-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-text {
+  color: #28a745;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.annotation-content {
+  flex: 1;
+  /* max-width: 95%; */
+  margin: 0 auto;
+  padding: 32px 24px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.paper-info-section {
+  position: sticky;
+  top: 100px;
+  width: 100%;
+  height: fit-content;
+}
+
+.paper-info-card {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 10px;
+}
+
+.paper-id-badge {
+  display: inline-block;
+  background: #707070;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-left: 10px;
+}
+
+.paper-title {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.paper-abstract {
+  margin-bottom: 20px;
+}
+
+.paper-abstract h3 {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.paper-abstract p {
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.paper-link-button {
+  display: inline-block;
+  /* padding: 10px 20px; */
+  /* background: #ad95df; */
+  /* text-decoration: underline; */
+  color: #363636;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.paper-link-button:hover {
+  color: #878787;
+}
+
+.annotation-form-section {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  height: max-content;
+}
+
+.annotation-form-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.annotation-form {
+  display: flex;
+   flex-wrap: wrap;
+  /* flex-direction: column; */
+  gap: 24px;
+}
+
+.annotation-form .form-group {
+  display: flex;
+  min-width: 48%;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.annotation-form .form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-definition {
+  cursor: help;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  /* background: #ad95df; */
+  color: #000000;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.optional-label {
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: normal;
+  margin-left: 4px;
+}
+
+.text-gray{
+   color: #cccccc;
+}
+
+.annotation-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.annotation-form textarea:focus {
+  outline: none;
+  border-color: #ede8f9;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.action-buttons button {
+  flex: 1;
+}
+
+.annotation-footer {
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  padding: 16px 0;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  bottom: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+}
+
+.annotation-footer {
+  /* max-width: 900px; */
+  /* width: 900px; */
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    margin-top: 10px;
+  
+}
+
+.keyboard-hint {
+  color: #999;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+@media (max-width: 1400px) {
+  .annotation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .paper-info-section {
+    position: static;
+  }
+
+  .annotation-footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .annotation-footer .btn-nav {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .annotation-header .header-content {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+}

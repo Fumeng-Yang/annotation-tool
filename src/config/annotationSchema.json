@@ -1,0 +1,300 @@
+{
+  "contribution": {
+    "label": "Contribution Type",
+    "definition": "The main contribution of the paper to the field of human-AI decision-making",
+    "options": [
+      {
+        "value": "Algorithmic",
+        "label": "Algorithmic",
+        "definition": "new AI/ML algorithms, models, or computational approaches, very specific thing"
+      },
+      {
+        "value": "Empirical",
+        "label": "Empirical",
+        "definition": "experimental findings, user studies, and observational research results"
+      },
+      {
+        "value": "Theoretical",
+        "label": "Theoretical",
+        "definition": "conceptual frameworks, conceptual models, and theories"
+      },
+      {
+        "value": "Methodological",
+        "label": "Methodological",
+        "definition": "new research methods, evaluation frameworks, analytical approaches, and design guidelines/principles"
+      },
+       {
+        "value": "System/Artifact",
+        "label": "System/Artifact",
+        "definition": "implemented systems, tools, interfaces, and design solutions"
+      },
+      {
+        "value": "Dataset/Benchmark",
+        "label": "Dataset/Benchmark",
+        "definition": "new datasets, benchmarks, and evaluation resources"
+      }
+    ]
+  },
+  "application_domain": {
+    "label": "Application Domain",
+    "definition": "The field or domain where the research is applied",
+    "options": [
+      {
+        "value": "Healthcare / Medicine / Surgery",
+        "label": "Healthcare / Medicine / Surgery",
+        "definition": "public health, nursing, childcare, clinical, medicine, healthcare, surgery, therapy"
+      },
+      {
+        "value": "Finance / Business / Economy",
+        "label": "Finance / Business / Economy",
+        "definition": "finance/investment/loan, business/trading/shopping/marketing, blockchain/bitcoin"
+      },
+      {
+        "value": "Education / Teaching / Research",
+        "label": "Education / Teaching / Research",
+        "definition": "schooling, teaching, academia, research, data analysis, assessments, science"
+      },
+      {
+        "value": "Law / Policy / Governance",
+        "label": "Law / Policy / Governance",
+        "definition": "criminal/law/legal/justice; politics/government/democracy, policymaking, campaign"
+      },
+      {
+        "value": "Software / Systems / Security",
+        "label": "Software / Systems / Security",
+        "definition": "smart home, programming, software engineering, cloud computing, databases, privacy, internet infrastructure"
+      },
+      {
+        "value": "Transportation / Mobility / Planning",
+        "label": "Transportation / Mobility / Planning",
+        "definition": "city/smart city; driving, traffic, logistics, travel, freight, navigation, flight, aviation"
+      },
+      {
+        "value": "Manufacturing/ Industry / Automation",
+        "label": "Manufacturing/ Industry / Automation",
+        "definition": "manufacturing, supply chain, logistics, robotics, automation, resource allocation"
+      },
+      {
+        "value": "Environment / Resources / Energy",
+        "label": "Environment / Resources / Energy",
+        "definition": "wate, food,  agriculture, fishery, water, food, energy, electricity, environment"
+      },
+      {
+        "value": "Defense / Military / Emergency",
+        "label": "Defense / Military / Emergency",
+        "definition": "homeland security, military, disaster prediction, emergency response, surveillance"
+      },
+      {
+        "value": "Media / Communication / Entertainment",
+        "label": "Media / Communication / Entertainment",
+        "definition": "press/journalism/writing, sport, game/entertainment, social media/social network, tourism"
+      },
+      {
+        "value": "Design / Creativity / Architecture",
+        "label": "Design / Creativity / Architecture",
+        "definition": "design, creativity, architecture, art, innovation, user experience"
+      },
+      {
+        "value": "Everyday / Employment / Public Service",
+        "label": "Everyday / Employment / Public Service",
+        "definition": "hiring, admissions, caregiving, daycare, social good, public sector, management, everyday tasks, renting, image classifaction related to everyday tasks"
+      },
+      {
+        "value": "Generic / Abstract / Domain-agnostic",
+        "label": "Generic / Abstract / Domain-agnostic",
+        "definition": "General purposes or abstract context; general image classification"
+      }
+    ]
+  },
+  "ai_roles": {
+    "label": "AI Roles",
+    "definition": "The role that AI systems play in the decision-making process",
+    "options": [
+      {
+        "value": "Analyzing",
+        "label": "Analyzing",
+        "definition": "Processes complex information to give it structure and clarity",
+        "description": "(pattern/action) recognizer, biomarker identifier, (human behavior/prognostic) modeler, (treatment effect) estimator, risk assessment tool, summarizer, (information/knowledge) extractor, report generator, information/option provider, planner, analyzer"
+      },
+      {
+        "value": "Forecasting",
+        "label": "Forecasting",
+        "description": "(counterfactual/risk) predictor, forecaster, mortality prediction model, (image) classifier, (skin cancer) detector",
+        "definition": "Uses current and historical data to forecast what will happen in the future. It answers the question, \"What's next?\""
+      },
+      {
+        "value": "Explaining",
+        "label": "Explaining",
+        "definition": "Translates opaque processes into human-readable justifications. \"Why did this happen?\"",
+        "description": "explainer, reasoner"
+      },
+      {
+        "value": "Advising",
+        "label": "Advising",
+        "definition": "Actively provides recommendations or guidance for the human to consider",
+        "description": "recommender, AI teacher, (suggestion/portfolio) generator, (robo-) advisor, tutor, coach, guide, curriculum designer, advice interpreter, decision-making model/algo/system"
+      },
+      {
+        "value": "Collaborating",
+        "label": "Collaborating",
+        "definition": "works alongside a human as a partner in a dynamic, interactive process",
+        "description": "collaborator, AI partner, teammate, human-agent team member, hybrid partner, complementary learner, co-pilot, interactive agent, shared autonomy system, assistant/supplement, collaboration aid, conversational agent (CA), chatbot, virtual assistant, dialogue manager, health chatbots"
+      },
+      {
+        "value": "Executing",
+        "label": "Executing",
+        "definition": "acts independently to perform a task or make a decision delegated by a human",
+        "description": "task performer/delegatee, assigner/matcher, actor, agent, (workflow) optimizer, allocator, scheduler, controller, task automator, resource generator, automated (trader/negotiator), (game/autonomous) player, strategic agent, policy generator, decision-maker, (policy) learner"
+      },
+      {
+        "value": "Monitoring",
+        "label": "Monitoring",
+        "definition": "Monitors a system's real-time performance, status, and safety",
+        "description": "(trajectory/policy) evaluator, supervisor, overseer, (quality/reliability) assessor, performance monitor, system health diagnostician"
+      }
+      ,
+      {
+        "value": "Auditing",
+        "label": "Auditing",
+        "definition": "Checks and validates a system against established rules, ethics, and standards",
+        "description": "(fairness/policy) auditor, ethical verifier, (bias/discrimination) detector, formal modeler"
+      }
+    ]
+  },
+  "human_roles": {
+    "label": "Human Roles",
+    "definition": "The role that humans play in the decision-making process",
+    "options": [
+      {
+        "value": "Decision-maker",
+        "label": "Decision-maker",
+        "definition": "Individuals who engage with AI to make decisions, collaborate, learn, delegate, or guide the system’s improvement",
+        "description": "decision-maker, investigator, user, collaborator, learner, delegator"
+      },
+      {
+        "value": "Decision-subject",
+        "label": "Decision-subject",
+        "definition": "Individuals upon whom a decision is made and who are directly affected by the outcome",
+        "description": "(cancer) patients, (loan/job) applicants, defendant / inmates, candidate / students, customer / consumer, decision subjects (defendants, citizens, authors...)"
+      },
+      {
+        "value": "Developer",
+        "label": "Developer",
+        "definition": "Technical professionals who design, build, and maintain the AI system",
+        "description": "AI (developers/software engineers), data scientist/engineer, ML model engineers/practitioners, (system) designers, database administrators, technical experts, researcher"
+      },
+      {
+        "value": "Guardian",
+        "label": "Guardian",
+        "definition": "Individuals and institutions that set the rules, policies, and ethical guardrails for AI systems",
+        "description": "regulator, policy-maker, government, (independent) auditor, AI ethicist, moral philosophers, research ethics committees, lawyers, judges, courts, parole board, governing body, supervisor, evaluator, analyst/auditor"
+      },
+      {
+        "value": "Knowledge provider",
+        "label": "Knowledge provider",
+        "definition": "People who provide the specialized data, expertise, or judgment used to train and validate the AI",
+        "description": "(domain/subject matter/medical/legal) experts, annotator, labeler, manual coder, survey participant, crowd workers, human subjects, human as inspiration, human as benchmark / guide, teacher"
+      },
+      {
+        "value": "Stakeholder",
+        "label": "Stakeholder",
+        "definition": "The broader community or groups indirectly impacted by the AI's deployment and societal consequence", 
+        "description": "community, citizens, public, families, employees, company stakeholders, (vulnerable/protected) groups, society"
+      }
+    ]
+  },
+  "ai_influence": {
+    "label": "AI Influence",
+    "definition": "The degree to which AI influences the final decision outcome",
+    "options": [
+      {
+        "value": "Altering decision outcomes",
+        "label": "Altering decision outcomes",
+        "definition": "improving accuracy, improving speed / response rate, reducing speed, achieving complementary human-AI performance, changing decision, following AI recommendation, improving performance, increasing decision quality"
+      },
+      {
+        "value": "Change trust",
+        "label": "Change trust",
+        "definition": "trust (except for moral trust), reliance, aversion, faith in AI’s capabilities"
+      },
+        {
+        "value": "Change cognitive demands",
+        "label": "Change cognitive demands",
+        "definition": "Cognitive load, human effort, burden recall, retention, decision time, skills, ..."
+      },
+        {
+        "value": "Change affective-perceptual",
+        "label": "Change affective-perceptual",
+        "definition": "confidence, feelings, satisfaction, "
+      },
+      {
+        "value": "Restricting human agency",
+        "label": "Restricting human agency",
+        "definition": "autonomy, agency, control"
+      },
+      {
+        "value": "Shifting responsibility",
+        "label": "Shifting responsibility",
+        "definition": "responsibility, blame, accountability, moral trust"
+      },
+      {
+        "value": "Shaping ethical norms",
+        "label": "Shaping ethical norms",
+        "definition": "reducing bias, ensuring fairness, detecting direct biases, detecting indirect biases, increasing agreement with model biases, increasing acceptance of unethical advice, reinforcing perceived fairness, .. "
+      }
+    ]
+  },
+  "human_influence": {
+    "label": "Human Influence",
+    "definition": "How human influence AI",
+    "options": [
+      {
+        "value": "Updating AI competence ",
+        "label": "Updating AI competence ",
+        "definition": "Human influence on system robustness and perceived competence",
+        "description": "performance, accuracy, interpretability, returning predictable outputs, improving AI performance, keeping transparent, preferring/prioritizing X, ..."
+      },
+      {
+        "value": "Changing AI responses",
+        "label": "Changing AI responses through feedback",
+        "definition": "Direct ways humans refine and shape AI outputs",
+        "description": "refining prompts, learning from feedback, providing desired information to trust AI, human-adjusted refinements (providing corrections, clarifications), increasing depth of information"
+      },
+      {
+        "value": "Shaping AI for accountability",
+        "label": "Shaping AI for accountability",
+        "definition": "Humans have limited influence on the decision"
+      }
+    ]
+  },
+  "decision_type": {
+    "label": "Decision Type",
+    "definition": "The category of decision being made in the context studied",
+    "options": [
+      {
+        "value": "Individual",
+        "label": "Individual",
+        "definition": "decisions decisions made by a single person for themselves",
+        "description": "personal diabetes management, purchase products, accepting AI shopping advice, lane-changing,  select fashion items/movies/university, travel planning, farmers’ planting decisions, program library selection,  creative support tools"
+      },
+      {
+        "value": "Operational",
+        "label": "Operational",
+        "definition": "decisions embedded in day-to-day routines and practices",
+        "description": "clinical diagnosis, coordinating connected fleets, loan approval, hiring/firing, admissions, resource allocation, policy development, grade students, identify harmful posts, production scheduling, farmers’ planting decisions, load shedding, code review,  military operators"
+      },
+      {
+        "value": "Organizational",
+        "label": "Organizational",
+        "definition": "decisions made within or on behalf of organizations",
+        "description": "emergency department management, COVID vaccine allocation, supply chain management,  aviation operations, manage workforce, recruit students, game management, manage suppliers/retailers, code review, emergency facility planning"
+      },
+      {
+        "value": "Institutional",
+        "label": "Institutional",
+        "definition": "decisions that establish standards or norm",
+        "description": " governance frameworks and legitimacy of algorithmic decisions in markets/public services/schools, social media filtering, digital twins,  climate forecasts, develop defensive strategies under attack,  air defense planning"
+      }
+    ]
+  }
+}
