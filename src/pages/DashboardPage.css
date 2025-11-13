@@ -281,8 +281,8 @@
 .no-papers {
   text-align: center;
   padding: 60px 20px;
-  color: #999;
-  font-size: 1.1rem;
+  color: #000000;
+  font-size: 1.3rem;
   grid-column: 1 / -1;
 }
 
@@ -300,4 +300,8 @@
   .papers-list {
     grid-template-columns: 1fr;
   }
+}
+
+.warning{
+  color: hsl(0, 100%, 63%);
 }

@@ -1,41 +1,41 @@
 {
-  "contribution": {
+  "contribution_types": {
     "label": "Contribution Type",
     "definition": "The main contribution of the paper to the field of human-AI decision-making",
     "options": [
       {
-        "value": "Algorithmic",
-        "label": "Algorithmic",
+        "value": "Algorithmic contributions",
+        "label": "Algorithmic contributions",
         "definition": "new AI/ML algorithms, models, or computational approaches, very specific thing"
       },
       {
-        "value": "Empirical",
-        "label": "Empirical",
+        "value": "Empirical contributions",
+        "label": "Empirical contributions",
         "definition": "experimental findings, user studies, and observational research results"
       },
       {
-        "value": "Theoretical",
-        "label": "Theoretical",
+        "value": "Theoretical contributions",
+        "label": "Theoretical contributions",
         "definition": "conceptual frameworks, conceptual models, and theories"
       },
       {
-        "value": "Methodological",
-        "label": "Methodological",
+        "value": "Methodological contributions",
+        "label": "Methodological contributions",
         "definition": "new research methods, evaluation frameworks, analytical approaches, and design guidelines/principles"
       },
        {
-        "value": "System/Artifact",
-        "label": "System/Artifact",
+        "value": "System/Artifact contributions",
+        "label": "System/Artifact contributions",
         "definition": "implemented systems, tools, interfaces, and design solutions"
       },
       {
-        "value": "Dataset/Benchmark",
-        "label": "Dataset/Benchmark",
+        "value": "Dataset/Benchmark contributions",
+        "label": "Dataset/Benchmark contributions",
         "definition": "new datasets, benchmarks, and evaluation resources"
       }
     ]
   },
-  "application_domain": {
+  "application_domains": {
     "label": "Application Domain",
     "definition": "The field or domain where the research is applied",
     "options": [
@@ -70,8 +70,8 @@
         "definition": "city/smart city; driving, traffic, logistics, travel, freight, navigation, flight, aviation"
       },
       {
-        "value": "Manufacturing/ Industry / Automation",
-        "label": "Manufacturing/ Industry / Automation",
+        "value": "Manufacturing / Industry / Automation",
+        "label": "Manufacturing / Industry / Automation",
         "definition": "manufacturing, supply chain, logistics, robotics, automation, resource allocation"
       },
       {
@@ -204,12 +204,12 @@
     ]
   },
   "ai_influence": {
-    "label": "AI Influence",
+    "label": "AI Influence on humans",
     "definition": "The degree to which AI influences the final decision outcome",
     "options": [
       {
-        "value": "Altering decision outcomes",
-        "label": "Altering decision outcomes",
+        "value": "Alter decision outcomes",
+        "label": "Alter decision outcomes",
         "definition": "improving accuracy, improving speed / response rate, reducing speed, achieving complementary human-AI performance, changing decision, following AI recommendation, improving performance, increasing decision quality"
       },
       {
@@ -225,49 +225,49 @@
         {
         "value": "Change affective-perceptual",
         "label": "Change affective-perceptual",
-        "definition": "confidence, feelings, satisfaction, "
+        "definition": "confidence, feelings, satisfaction, ..."
       },
       {
-        "value": "Restricting human agency",
-        "label": "Restricting human agency",
-        "definition": "autonomy, agency, control"
+        "value": "Restrict human agency",
+        "label": "Restrict human agency",
+        "definition": "autonomy, agency, control, ..."
       },
       {
-        "value": "Shifting responsibility",
-        "label": "Shifting responsibility",
-        "definition": "responsibility, blame, accountability, moral trust"
+        "value": "Shift responsibility",
+        "label": "Shift responsibility",
+        "definition": "responsibility, blame, accountability, moral trust, ..."
       },
       {
-        "value": "Shaping ethical norms",
-        "label": "Shaping ethical norms",
-        "definition": "reducing bias, ensuring fairness, detecting direct biases, detecting indirect biases, increasing agreement with model biases, increasing acceptance of unethical advice, reinforcing perceived fairness, .. "
+        "value": "Shape ethical norms",
+        "label": "Shape ethical norms",
+        "definition": "reducing bias, ensuring fairness, detecting direct biases, detecting indirect biases, increasing agreement with model biases, increasing acceptance of unethical advice, reinforcing perceived fairness, ... "
       }
     ]
   },
   "human_influence": {
-    "label": "Human Influence",
+    "label": "Human Influence on AI",
     "definition": "How human influence AI",
     "options": [
       {
-        "value": "Updating AI competence ",
-        "label": "Updating AI competence ",
+        "value": "Update AI competence",
+        "label": "Update AI competence",
         "definition": "Human influence on system robustness and perceived competence",
         "description": "performance, accuracy, interpretability, returning predictable outputs, improving AI performance, keeping transparent, preferring/prioritizing X, ..."
       },
       {
-        "value": "Changing AI responses",
-        "label": "Changing AI responses through feedback",
+        "value": "Change AI responses",
+        "label": "Change AI responses through feedback",
         "definition": "Direct ways humans refine and shape AI outputs",
         "description": "refining prompts, learning from feedback, providing desired information to trust AI, human-adjusted refinements (providing corrections, clarifications), increasing depth of information"
       },
       {
-        "value": "Shaping AI for accountability",
-        "label": "Shaping AI for accountability",
+        "value": "Shape AI for accountability",
+        "label": "Shape AI for accountability",
         "definition": "Humans have limited influence on the decision"
       }
     ]
   },
-  "decision_type": {
+  "decision_types": {
     "label": "Decision Type",
     "definition": "The category of decision being made in the context studied",
     "options": [

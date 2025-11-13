@@ -180,8 +180,9 @@
   margin-left: 4px;
 }
 
-.text-gray{
+.disabled-field {
    color: #cccccc;
+   background-color: #ededed !important;
 }
 
 .annotation-form textarea {
@@ -268,4 +269,58 @@
   .action-buttons {
     flex-direction: column;
   }
+}
+
+.form-group-sub{
+  gap: 5px;
+  display: flex;
+  /* margin-bottom: 5px; */
+}
+.model-name{
+  padding: 5px 5px;
+  color: #666;
+  font-size: small;
+}
+
+.reference-badge-matched {
+  padding: 5px 5px;
+  border-radius: 4px;
+  background-color: #cbe0f7;
+  color: #1a355c;
+  border: 1px solid #cbe0f7 !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.reference-badge-not-matched {
+  padding: 5px 5px;
+  border-radius: 4px;
+  background-color: #fae7eb !important;
+  color: #721c24;
+  border: 1px solid #fae7eb !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.reference-matched {
+  background-color: #cbe0f7 !important;
+  color: #1a355c;
+  border: 1px solid #cbe0f7 !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.reference-not-matched {
+  background-color: #f8f6df !important;
+  color: #721c24;
+  border: 1px solid #f8f6df !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.reminder{
+  text-align: end;
+  padding: 5px;
+  text-decoration: italic;
+  font-size: 0.85rem;
 }

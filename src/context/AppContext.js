@@ -16,6 +16,7 @@ export const AppProvider = ({ children }) => {
   });
   
   const [papers, setPapers] = useState([]);
+  const [references, setReferences] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -40,7 +41,7 @@ export const AppProvider = ({ children }) => {
   const updatePaperInList = (paperId, updates) => {
     setPapers(prevPapers => 
       prevPapers.map(paper => 
-        paper.paper_id === paperId 
+        paper.id === paperId 
           ? { ...paper, ...updates }
           : paper
       )
@@ -50,11 +51,13 @@ export const AppProvider = ({ children }) => {
   const value = {
     coderName,
     papers,
+    references,
     loading,
     error,
     login,
     logout,
     setPapers,
+    setReferences,
     setLoading,
     setError,
     updatePaperInList

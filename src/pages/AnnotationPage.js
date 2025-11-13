@@ -9,7 +9,7 @@ import './AnnotationPage.css';
 
 function AnnotationPage() {
   const { paperId } = useParams();
-  const { coderName, papers, updatePaperInList } = useApp();
+  const { coderName, papers, references, updatePaperInList } = useApp();
   const navigate = useNavigate();
 
   const [paper, setPaper] = useState(null);
@@ -28,12 +28,13 @@ function AnnotationPage() {
       return;
     }
 
-    const currentPaper = papers.find(p => p.paper_id === paperId);
+    const currentPaper = papers.find(p => p.id === paperId);
     if (!currentPaper) {
       navigate('/dashboard');
       return;
     }
 
+    // console.log(currentPaper)
     setPaper(currentPaper);
     setAnnotations(currentPaper.annotations || {});
     setNotes(currentPaper.annotations?.notes || '');
@@ -49,7 +50,7 @@ function AnnotationPage() {
     try {
       const response = await apiPost('save_annotation', {
         coder_name: coderName,
-        paper_id: paperId,
+        id: paperId,
         annotations: {
           ...annotations,
           notes: notes
@@ -122,16 +123,16 @@ function AnnotationPage() {
   };
 
   const handleNavigation = (direction) => {
-    const currentIndex = papers.findIndex(p => p.paper_id === paperId);
+    const currentIndex = papers.findIndex(p => p.id === paperId);
     if (direction === 'prev' && currentIndex > 0) {
-      navigate(`/annotate/${papers[currentIndex - 1].paper_id}`);
+      navigate(`/annotate/${papers[currentIndex - 1].id}`);
     } else if (direction === 'next' && currentIndex < papers.length - 1) {
-      navigate(`/annotate/${papers[currentIndex + 1].paper_id}`);
+      navigate(`/annotate/${papers[currentIndex + 1].id}`);
     }
   };
 
   const getCurrentPaperIndex = () => {
-    return papers.findIndex(p => p.paper_id === paperId);
+    return papers.findIndex(p => p.id === paperId);
   };
 
   useEffect(() => {
@@ -163,11 +164,13 @@ function AnnotationPage() {
           </button>
           <div className="paper-progress">
             Paper {currentIndex + 1} of {papers.length}
-            <span className="paper-id-badge">ID: {paper.paper_id}</span>
+            <span className="paper-id-badge">ID: {paper.id}</span>
           </div>
           <div className="save-status">
+
             {saveStatus && <span className="status-text">{saveStatus}</span>}
             {saving && <span className="spinner">⟳</span>}
+            <span className='paper-progress'>Hello, {coderName}!</span>
           </div>
         </div>
       </header>
@@ -193,27 +196,25 @@ function AnnotationPage() {
               </a>
             )}
           </div>
-      <div className="" >
-        <div className="paper-info-card">
-        <a onClick={() => setShowPaper(!showPaper)}   className="paper-link-button">
-          {showPaper ? 'Hide Paper' : 'Show Paper'}
-        </a>
-         {showPaper && <iframe className='PDF-viewer'
-            src={paper.pdf_link.replace(/\/view(\?.*)?$/, '/preview')}
-            width="100%"
-            height="800px"
-            allow="autoplay"
-            style={{ border: 'none' }}
-          />
-          }
-        </div>
-      </div>
+          <div className="" >
+            <div className="paper-info-card">
+              <a onClick={() => setShowPaper(!showPaper)} className="paper-link-button">
+                {showPaper ? 'Hide Paper' : 'Show Paper'}
+              </a>
+              {showPaper && <iframe className='PDF-viewer'
+                src={paper.pdf_link.replace(/\/view(\?.*)?$/, '/preview')}
+                width="100%"
+                height="800px"
+                allow="autoplay"
+                style={{ border: 'none' }}
+              />
+              }
+            </div>
+          </div>
 
         </div>
         <div className='paper-info-section'>
           <div className="annotation-form-section">
-            {/* <h2>Annotations</h2> */}
-
             {error && (
               <div className="error-message">
                 {error}
@@ -223,6 +224,16 @@ function AnnotationPage() {
             <form className="annotation-form">
               {Object.keys(annotationSchema).map(fieldKey => {
                 const field = annotationSchema[fieldKey];
+                let reference = null, reference2 = null, merged = [];
+
+                if (paper.annotations && paper.annotations.reference && paper.annotations.reference != '' && references) {
+                  reference = references.filter(ref => ref.id === paper.id)[0].annotations;
+                  merged = reference[fieldKey] ? [...reference[fieldKey]] : [];
+                  if (references.filter(ref => ref.id === paper.id)[1]) {
+                    reference2 = references.filter(ref => ref.id === paper.id)[1].annotations;
+                    merged = reference2[fieldKey] ? [...merged, ...reference2[fieldKey]] : merged;
+                  }
+                }
 
                 // Skip influence fields if code_full_paper is false
                 if (paper.code_full_paper === "No" &&
@@ -232,22 +243,47 @@ function AnnotationPage() {
                       {field.label}
                       <span className="field-definition" title={field.definition}>ⓘ</span>
                     </label>
-                    <div className="multi-select"> <div className='multi-select-control text-gray'> No need to code this </div></div>
+                    <div className="multi-select"> <div className='multi-select-control disabled-field'> No need to code this </div></div>
                   </div>;
                 }
 
                 return (
                   <div key={fieldKey} className="form-group">
-                    <label>
-                      {field.label}
-                      <span className="field-definition" title={field.definition}>ⓘ</span>
-                    </label>
-                    <MultiSelect
-                      options={field.options}
-                      value={annotations[fieldKey] || []}
-                      onChange={(value) => handleAnnotationChange(fieldKey, value)}
-                      placeholder={`Select ${field.label.toLowerCase()}...`}
-                    />
+                    <div className='form-group'>
+                      <label>
+                        {field.label}
+                        <span className="field-definition" title={field.definition}>ⓘ</span>
+                      </label>
+                      <MultiSelect
+                        options={field.options}
+                        value={annotations ? annotations[fieldKey] : []}
+                        onChange={(value) => handleAnnotationChange(fieldKey, value)}
+                        reference={merged}
+                        placeholder={`Select ${field.label.toLowerCase()}...`}
+                      />
+                    </div>
+                    {reference && <div className='form-group-sub'>
+                      {reference[fieldKey] && reference[fieldKey].map((val, idx) => {
+                        let label = "not-matched";
+                        if (annotations[fieldKey].find(v => v === val)) {
+                          label = "matched";
+                        }
+                        return (<span key={idx} className={`reference-badge-${label}`}>{val}</span>)
+                      })}
+                      <span className="model-name">{reference.model}</span>
+                    </div>
+                    }
+                    {reference2 && <div className='form-group-sub'>
+                      {reference2[fieldKey] && reference2[fieldKey].map((val, idx) => {
+                        let label = "not-matched";
+                        if (annotations[fieldKey].find(v => v === val)) {
+                          label = "matched";
+                        }
+                        return (<span key={idx} className={`reference-badge-${label}`}>{val}</span>)
+                      })}
+                      <span className="model-name">{reference2.model}</span>
+                    </div>
+                    }
                   </div>
                 );
               })}
@@ -275,7 +311,7 @@ function AnnotationPage() {
               >
                 Mark as Complete
               </button>
-               <button
+              <button
                 onClick={handleManualSave}
                 className="btn-secondary"
                 disabled={saving}
@@ -283,6 +319,7 @@ function AnnotationPage() {
                 Save Progress
               </button>
             </div>
+            <div className="reminder">Remember to save your work frequently!</div>
           </div>
 
           <div className="annotation-footer">

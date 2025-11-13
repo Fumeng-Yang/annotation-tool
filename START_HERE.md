@@ -284,7 +284,7 @@ Add these security measures:
 
 ### Data Not Saving?
 - Check Google Apps Script execution logs
-- Verify paper_id values match
+- Verify id values match
 - Check network tab in browser DevTools
 
 ### Still Stuck?

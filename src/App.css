@@ -41,13 +41,22 @@ body {
 .btn-primary,
 .btn-secondary,
 .btn-complete,
-.btn-nav,
 .btn-back,
 .btn-retry {
-  padding: 12px 20px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.btn-nav{
+  padding: 5px 10px;
   border: none;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: .9rem;
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 500;
@@ -59,7 +68,7 @@ body {
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #222222;
+  background-color: #8d8f91;
 }
 
 .btn-secondary {
@@ -68,7 +77,7 @@ body {
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: #7d7d7d;
+  background-color: #b4bbbf;
 }
 
 .btn-complete {

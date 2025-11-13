@@ -186,7 +186,7 @@ I've successfully generated a **complete, production-ready** paper annotation to
 
 ### Easy (No Code Changes)
 - **Coder names**: Just rename sheets in Google Sheets
-- **Paper assignments**: Update paper_id values in coder sheets
+- **Paper assignments**: Update id values in coder sheets
 - **Paper data**: Add/edit papers in Papers sheet
 
 ### Medium (JSON Configuration)

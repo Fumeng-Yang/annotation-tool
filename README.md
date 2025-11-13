@@ -84,14 +84,14 @@ Create one sheet for each coder with the naming convention "Coder_[Name]":
 
 Each coder sheet should have these columns:
 
-| paper_id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes |
+| id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes |
 |----------|--------------|-------------------|----------|-------------|--------------|-----------------|---------------|--------|-------|
 
-**Pre-populate the `paper_id` column** with the IDs of papers each coder should annotate. Leave other columns empty.
+**Pre-populate the `id` column** with the IDs of papers each coder should annotate. Leave other columns empty.
 
 Example for Coder_Alice:
 ```
-paper_id
+id
 1
 2
 3
@@ -242,12 +242,12 @@ paper_id
 
 1. **Adding New Papers**
    - Add rows to the "Papers" sheet
-   - Assign papers to coders by adding paper_ids to their sheets
+   - Assign papers to coders by adding ids to their sheets
 
 2. **Adding New Coders**
    - Create a new sheet named "Coder_[Name]"
    - Add the same column headers as other coder sheets
-   - Populate with paper_ids
+   - Populate with ids
 
 3. **Monitoring Progress**
    - Check individual coder sheets for their annotations
@@ -310,11 +310,11 @@ The default schema includes these fields:
 - **Returns**: Array of papers with annotations
 
 #### POST /save_annotation
-- **Body**: `{ coder_name, paper_id, annotations, status }`
+- **Body**: `{ coder_name, id, annotations, status }`
 - **Returns**: Save confirmation
 
 #### POST /complete_paper
-- **Body**: `{ coder_name, paper_id }`
+- **Body**: `{ coder_name, id }`
 - **Returns**: Completion confirmation
 
 ## Data Format

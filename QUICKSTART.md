@@ -14,7 +14,7 @@ Get the Paper Annotation Tool running in 15 minutes!
 
 3. In **Papers** sheet, add these headers in row 1:
    ```
-   id | title | abstract | link | code_full_paper | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type
+   id | title | abstract | pdf_link | code_full_paper | contribution_types | application_domains | ai_roles | human_roles | ai_influence | human_influence | decision_types
    ```
 
 4. Add a few test papers (rows 2+):
@@ -25,7 +25,7 @@ Get the Paper Annotation Tool running in 15 minutes!
 
 5. In each **Coder_[Name]** sheet, add these headers in row 1:
    ```
-   paper_id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
+   id | contribution_types | application_domains | ai_roles | human_roles | ai_influence | human_influence | decision_types | status | notes
    ```
 
 6. In each coder sheet, add some paper IDs (column A, rows 2+):
@@ -113,7 +113,7 @@ https://script.google.com/macros/s/AKfycbw7L9R_qPXtq0mFXrGtEURywpXyD31r0hcGi0vU_
 
 **Nothing saves?**
 - Check Google Apps Script logs (Apps Script > Executions)
-- Verify paper_id values in coder sheets match Papers sheet IDs
+- Verify id values in coder sheets match Papers sheet IDs
 
 **Still stuck?**
 - Check the [Troubleshooting section in README.md](README.md#troubleshooting)

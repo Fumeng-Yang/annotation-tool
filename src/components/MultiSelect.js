@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './MultiSelect.css';
 
-function MultiSelect({ options, value = [], onChange, placeholder = 'Select options...' }) {
+function MultiSelect({ options, reference = [], value = [], onChange, placeholder = 'Select options...' }) {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const dropdownRef = useRef(null);
@@ -50,8 +50,14 @@ function MultiSelect({ options, value = [], onChange, placeholder = 'Select opti
           {value.length === 0 ? (
             <span className="placeholder">{placeholder}</span>
           ) : (
-            value.map(val => (
-              <span key={val} className="selected-tag">
+            value.map(val => {
+
+            let colorClass = reference && Array.isArray(reference) && reference.length > 0 ? 'reference-not-matched' : ''
+        
+            if(reference && reference.includes(val)){
+              colorClass = 'reference-matched'
+            } 
+            return ( <span key={val} className={`selected-tag ${colorClass}`}>
                 {getOptionLabel(val)}
                 <button
                   type="button"
@@ -61,7 +67,8 @@ function MultiSelect({ options, value = [], onChange, placeholder = 'Select opti
                   ×
                 </button>
               </span>
-            ))
+            )
+            })
           )}
         </div>
         <span className="dropdown-arrow">{isOpen ? '▲' : '▼'}</span>

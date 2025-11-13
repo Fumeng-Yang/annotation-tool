@@ -5,10 +5,12 @@ import { apiGet } from '../config/api';
 import './DashboardPage.css';
 
 function DashboardPage() {
-  const { coderName, papers, setPapers, setLoading, logout } = useApp();
+  const { coderName, papers, references, setPapers, setReferences, setLoading, logout } = useApp();
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState('');
+  const [paperReady, setPaperReady] = useState(false);
+  const [referenceReady, setReferenceReady] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,21 +24,37 @@ function DashboardPage() {
   const loadPapers = async () => {
     setLoading(true);
     setError('');
-    
+
     try {
       const response = await apiGet('papers', { coder_name: coderName });
       
+
+      if (response.papers && response.papers[0] && response.papers[0].annotations && response.papers[0].annotations['reference'] && response.papers[0].annotations['reference'].length > 0) {
+        const responseRef = await apiGet('references', { coder_name: response.papers[0].annotations['reference'][0] });
+        if (responseRef.success) {
+          setReferences(responseRef.papers || []);
+          setReferenceReady(true);
+          // console.log('Loaded references:', responseRef.papers || []);
+        } else {
+          setError(responseRef.error || 'Failed to load references');
+        }
+      } else {
+          setReferenceReady(true);
+      }
       if (response.success) {
         setPapers(response.papers || []);
+        setPaperReady(true);
       } else {
         setError(response.error || 'Failed to load papers');
       }
+
     } catch (err) {
       setError('Network error. Please try again.');
       console.error('Load papers error:', err);
     } finally {
       setLoading(false);
     }
+
   };
 
   const getFilteredPapers = () => {
@@ -50,9 +68,9 @@ function DashboardPage() {
     // Filter by search term
     if (searchTerm.trim()) {
       const term = searchTerm.toLowerCase();
-      filtered = filtered.filter(paper => 
+      filtered = filtered.filter(paper =>
         paper.title.toLowerCase().includes(term) ||
-        paper.paper_id.toString().includes(term)
+        paper.id.toString().includes(term)
       );
     }
 
@@ -64,7 +82,7 @@ function DashboardPage() {
     const completed = papers.filter(p => p.status === 'completed').length;
     const inProgress = papers.filter(p => p.status === 'in_progress').length;
     const notStarted = papers.filter(p => p.status === 'not_started').length;
-    
+
     return { total, completed, inProgress, notStarted };
   };
 
@@ -96,7 +114,7 @@ function DashboardPage() {
 
       <div className="dashboard-content">
         <div className="progress-section">
-          <h2>Progress Overview</h2>
+          <h2>Status: {paperReady && referenceReady ? 'Ready' : <span className='warning'>{'Loading...Don\'t move!'}</span>} </h2>
           <div className="progress-stats">
             <div className="stat-card">
               <div className="stat-value">{stats.completed}</div>
@@ -115,10 +133,10 @@ function DashboardPage() {
               <div className="stat-label">Total Papers</div>
             </div>
           </div>
-          
+
           <div className="progress-bar-container">
             <div className="progress-bar">
-              <div 
+              <div
                 className="progress-fill"
                 style={{ width: `${stats.total > 0 ? (stats.completed / stats.total) * 100 : 0}%` }}
               />
@@ -179,17 +197,17 @@ function DashboardPage() {
         <div className="papers-list">
           {filteredPapers.length === 0 ? (
             <div className="no-papers">
-              {searchTerm ? 'No papers match your search' : 'No papers to display'}
+              {searchTerm ? 'No papers match your search' : 'Loading papers...'}
             </div>
           ) : (
             filteredPapers.map(paper => (
               <div
-                key={paper.paper_id}
+                key={paper.id}
                 className={`paper-card ${paper.status}`}
-                onClick={() => handlePaperClick(paper.paper_id)}
+                onClick={() => handlePaperClick(paper.id)}
               >
                 <div className="paper-header">
-                  <span className="paper-id">ID: {paper.paper_id}</span>
+                  <span className="paper-id">ID: {paper.id}</span>
                   <span className={`status-badge ${paper.status}`}>
                     {paper.status.replace('_', ' ')}
                   </span>
@@ -200,9 +218,9 @@ function DashboardPage() {
                   {paper.abstract.length > 200 ? '...' : ''}
                 </p>
                 {paper.pdf_link && (
-                  <a 
-                    href={paper.pdf_link} 
-                    target="_blank" 
+                  <a
+                    href={paper.pdf_link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="paper-link"
                     onClick={(e) => e.stopPropagation()}

@@ -29,7 +29,7 @@ id | title | abstract | link | code_full_paper | contribution | application_doma
 
 ### Column Headers (Row 1)
 ```
-paper_id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
+id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
 ```
 
 ### Pre-populated Data (Row 2+)
@@ -42,7 +42,7 @@ paper_id | contribution | application_domain | ai_roles | human_roles | ai_influ
 ```
 
 ### Notes:
-- Only fill the `paper_id` column with IDs from the Papers sheet
+- Only fill the `id` column with IDs from the Papers sheet
 - Leave all other columns empty - they'll be filled during annotation
 - Each row represents one paper this coder should annotate
 
@@ -54,7 +54,7 @@ Same structure as Coder_Alice, different paper assignments:
 
 ### Column Headers (Row 1)
 ```
-paper_id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
+id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
 ```
 
 ### Pre-populated Data (Row 2+)
@@ -74,7 +74,7 @@ Same structure, different assignments:
 
 ### Column Headers (Row 1)
 ```
-paper_id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
+id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
 ```
 
 ### Pre-populated Data (Row 2+)
@@ -94,7 +94,7 @@ Same structure, different assignments:
 
 ### Column Headers (Row 1)
 ```
-paper_id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
+id | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type | status | notes
 ```
 
 ### Pre-populated Data (Row 2+)
@@ -163,7 +163,7 @@ function setupCoderSheets() {
   
   // Column headers for coder sheets
   const headers = [
-    'paper_id', 'contribution', 'application_domain', 'ai_roles', 
+    'id', 'contribution', 'application_domain', 'ai_roles', 
     'human_roles', 'ai_influence', 'human_influence', 'decision_type', 
     'status', 'notes'
   ];
@@ -224,7 +224,7 @@ Before deploying, verify:
 - [ ] `code_full_paper` column has valid values (TRUE/FALSE/yes/no)
 - [ ] All coder sheets exist: Coder_Alice, Coder_Bob, etc.
 - [ ] All coder sheets have correct column headers (exact spelling)
-- [ ] Each coder sheet has paper_id values filled
+- [ ] Each coder sheet has id values filled
 - [ ] Paper IDs in coder sheets match IDs in Papers sheet
 - [ ] No duplicate column headers in any sheet
 - [ ] Sheet names are exact (case-sensitive: "Coder_Alice" not "coder_alice")
@@ -237,8 +237,8 @@ Before deploying, verify:
 2. **Missing headers**: Forgetting to add column headers
 3. **Wrong column order**: Column order doesn't matter, but names must match exactly
 4. **Invalid paper IDs**: Paper IDs in coder sheets that don't exist in Papers sheet
-5. **Mixed case**: "Paper_ID" instead of "paper_id"
-6. **Extra spaces**: "paper_id " with trailing space
+5. **Mixed case**: "id" instead of "id"
+6. **Extra spaces**: "id " with trailing space
 7. **Wrong data types**: Text in `code_full_paper` like "yes " with space
 
 ---
@@ -289,7 +289,7 @@ function exportAnnotations() {
   
   // Create new sheet for export
   const exportSheet = ss.insertSheet('Export_All_Annotations');
-  const headers = ['coder', 'paper_id', 'contribution', 'application_domain', 
+  const headers = ['coder', 'id', 'contribution', 'application_domain', 
                    'ai_roles', 'human_roles', 'ai_influence', 'human_influence', 
                    'decision_type', 'status', 'notes'];
   

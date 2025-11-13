@@ -1,6 +1,6 @@
 // API Configuration
 // Replace this with your deployed Google Apps Script Web App URL
-export const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbwYW-v9Pb_WkPuQZN-AlKnPLjDQJRKPqgx02Rss-DQiLahsrH-504cIt4YmXsdTm1z3/exec';
+export const API_BASE_URL = 'https://script.google.com/macros/s/AKfycbxrbnrZPzVrtzMdxfUmsSizDE3wKoKHsUFdFpOqOOJgli85GUcd4OujYMN84X2RGDeYkg/exec';
 
 // API Helper Functions
 export const apiGet = async (action, params = {}) => {

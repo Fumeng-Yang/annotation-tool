@@ -106,7 +106,7 @@ function handleGetPapers(coderName) {
   
   for (let i = 1; i < coderData.length; i++) {
     const row = coderData[i];
-    const paperId = row[0]; // First column is paper_id
+    const paperId = row[0]; // First column is id
     
     if (!paperId || !papersMap[paperId]) continue;
     
@@ -114,7 +114,7 @@ function handleGetPapers(coderName) {
     const annotations = {};
     
     coderHeaders.forEach((header, idx) => {
-      if (header === 'paper_id') return;
+      if (header === 'id') return;
       
       const value = row[idx];
       if (header === 'status' || header === 'notes') {
@@ -126,7 +126,7 @@ function handleGetPapers(coderName) {
     });
     
     papers.push({
-      paper_id: paperId.toString(),
+      id: paperId.toString(),
       title: paperInfo.title || '',
       abstract: paperInfo.abstract || '',
       link: paperInfo.link || '',
@@ -143,9 +143,9 @@ function handleGetPapers(coderName) {
  * Save annotation for a specific paper
  */
 function handleSaveAnnotation(data) {
-  const { coder_name, paper_id, annotations, status } = data;
+  const { coder_name, id, annotations, status } = data;
   
-  if (!coder_name || !paper_id) {
+  if (!coder_name || !id) {
     return createResponse(false, 'Missing required fields');
   }
   
@@ -156,14 +156,14 @@ function handleSaveAnnotation(data) {
     return createResponse(false, 'Coder sheet not found');
   }
   
-  // Find the row for this paper_id
+  // Find the row for this id
   const data_range = coderSheet.getDataRange();
   const values = data_range.getValues();
   const headers = values[0];
   
   let rowIndex = -1;
   for (let i = 1; i < values.length; i++) {
-    if (values[i][0].toString() === paper_id.toString()) {
+    if (values[i][0].toString() === id.toString()) {
       rowIndex = i;
       break;
     }
@@ -176,7 +176,7 @@ function handleSaveAnnotation(data) {
   // Update the row
   const rowData = values[rowIndex];
   headers.forEach((header, idx) => {
-    if (header === 'paper_id') return;
+    if (header === 'id') return;
     
     if (header === 'status') {
       rowData[idx] = status || 'in_progress';
@@ -185,7 +185,7 @@ function handleSaveAnnotation(data) {
     } else if (annotations[header] !== undefined) {
       // Multi-select: convert array to comma-separated string
       rowData[idx] = Array.isArray(annotations[header]) 
-        ? annotations[header].join(',') 
+        ? annotations[header].join(', ') 
         : annotations[header];
     }
   });
@@ -201,9 +201,9 @@ function handleSaveAnnotation(data) {
  * Mark a paper as completed
  */
 function handleCompletePaper(data) {
-  const { coder_name, paper_id } = data;
+  const { coder_name, id } = data;
   
-  if (!coder_name || !paper_id) {
+  if (!coder_name || !id) {
     return createResponse(false, 'Missing required fields');
   }
   
@@ -225,7 +225,7 @@ function handleCompletePaper(data) {
   }
   
   for (let i = 1; i < values.length; i++) {
-    if (values[i][0].toString() === paper_id.toString()) {
+    if (values[i][0].toString() === id.toString()) {
       coderSheet.getRange(i + 1, statusColIdx + 1).setValue('completed');
       return createResponse(true, { message: 'Paper marked as completed' });
     }

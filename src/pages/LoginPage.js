@@ -14,6 +14,11 @@ function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    if(name == 'GPT' || name == 'Claude' || name == 'GPT1' || name == 'Claude1' || name == 'GPTClaude'){
+      setError('The name you have entered is reserved. Please choose a different name.');
+      return;
+    }
+
     if (!name.trim()) {
       setError('Please enter your name');
       return;
