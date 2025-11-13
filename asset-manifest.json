@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/annotation-tool/static/css/main.e3d66cfe.css",
+    "main.js": "/annotation-tool/static/js/main.5eca804c.js",
+    "index.html": "/annotation-tool/index.html",
+    "main.e3d66cfe.css.map": "/annotation-tool/static/css/main.e3d66cfe.css.map",
+    "main.5eca804c.js.map": "/annotation-tool/static/js/main.5eca804c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e3d66cfe.css",
+    "static/js/main.5eca804c.js"
+  ]
+}
