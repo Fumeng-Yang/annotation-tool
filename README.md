@@ -62,17 +62,17 @@ paper-annotation-tool/
 #### Sheet 1: "Papers" (Main Data Sheet)
 Create a sheet named exactly "Papers" with these columns:
 
-| id | title | abstract | link | code_full_paper | contribution | application_domain | ai_roles | human_roles | ai_influence | human_influence | decision_type |
+| id | title | abstract | link | code_full_paper | contribution_types | application_domainaå | ai_roles | human_roles | ai_influence | human_influence | decision_types |
 |----|-------|----------|------|----------------|--------------|-------------------|----------|-------------|--------------|-----------------|---------------|
 
 **Column Descriptions:**
 - `id`: Unique paper identifier (e.g., 1, 2, 3...)
 - `title`: Paper title
 - `abstract`: Paper abstract
-- `link`: URL to the paper
+- `pdf_link`: URL to the paper
 - `code_full_paper`: TRUE/FALSE or yes/no (determines if influence fields are required)
-- `contribution`: Pre-filled contribution type (optional)
-- `application_domain`: Pre-filled domain (optional)
+- `contribution_types`: Pre-filled contribution type (optional)
+- `application_domains`: Pre-filled domain (optional)
 - Other fields: Can be left empty initially
 
 #### Sheet 2-5: Coder Sheets

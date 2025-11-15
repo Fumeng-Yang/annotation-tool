@@ -324,3 +324,12 @@
   text-decoration: italic;
   font-size: 0.85rem;
 }
+
+.general-reminder{
+  margin: 2px auto 20px auto;
+  color: #9ea6a4;
+  /* font-style: italic; */
+  font-size: .9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}

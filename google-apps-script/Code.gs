@@ -4,8 +4,8 @@
  */
 
 // Configuration
-const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID_HERE'; // Replace with your actual spreadsheet ID
-const PAPERS_SHEET_NAME = 'Papers';
+const SPREADSHEET_ID = '1LxEHnhgbPAYOjUHD-wBsdDZjuXD1bsrw7VLQqROlkWc'; // Replace with your actual spreadsheet ID
+const PAPERS_SHEET_NAME = 'primary_coder';
 const CODER_PREFIX = 'Coder_';
 
 /**
@@ -19,6 +19,8 @@ function doGet(e) {
       case 'login':
         return handleLogin(e.parameter.coder_name);
       case 'papers':
+        return handleGetPapers(e.parameter.coder_name);
+      case 'references':
         return handleGetPapers(e.parameter.coder_name);
       default:
         return createResponse(false, 'Invalid action');
@@ -129,8 +131,8 @@ function handleGetPapers(coderName) {
       id: paperId.toString(),
       title: paperInfo.title || '',
       abstract: paperInfo.abstract || '',
-      link: paperInfo.link || '',
-      code_full_paper: parseBoolean(paperInfo.code_full_paper),
+      pdf_link: paperInfo.pdf_link || '',
+      code_full_paper: paperInfo.code_full_paper,
       status: annotations.status || 'not_started',
       annotations: annotations
     });

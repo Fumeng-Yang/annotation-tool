@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import AnnotationPage from './pages/AnnotationPage';
@@ -9,7 +10,8 @@ import './App.css';
 function App() {
   return (
     <AppProvider>
-     <Router basename={`/${process.env.PUBLIC_URL}`}>
+      {/* <Router basename={`/${process.env.PUBLIC_URL}`}> */}
+      <HashRouter>
         <div className="App">
           <Routes>
             <Route path="/login" element={<LoginPage />} />
@@ -18,7 +20,7 @@ function App() {
             <Route path="/" element={<Navigate to="/login" replace />} />
           </Routes>
         </div>
-      </Router>
+      </HashRouter>
     </AppProvider>
   );
 }

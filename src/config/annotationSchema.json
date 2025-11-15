@@ -168,37 +168,37 @@
       {
         "value": "Decision-maker",
         "label": "Decision-maker",
-        "definition": "Individuals who engage with AI to make decisions, collaborate, learn, delegate, or guide the system’s improvement",
+        "definition": "Individuals who use or collaborate with AI to make (final) decisions or take actions",
         "description": "decision-maker, investigator, user, collaborator, learner, delegator"
       },
       {
         "value": "Decision-subject",
         "label": "Decision-subject",
-        "definition": "Individuals upon whom a decision is made and who are directly affected by the outcome",
-        "description": "(cancer) patients, (loan/job) applicants, defendant / inmates, candidate / students, customer / consumer, decision subjects (defendants, citizens, authors...)"
+        "definition": "Individuals are directly/personally affected/impacted by the decisions made by humans/AI",
+        "description": "(cancer) patients, (loan/job/student) applicants, defendant / inmates, candidate / students, customer / consumer, decision subjects (defendants, citizens, authors...)"
       },
       {
         "value": "Developer",
         "label": "Developer",
-        "definition": "Technical professionals who design, build, and maintain the AI system",
-        "description": "AI (developers/software engineers), data scientist/engineer, ML model engineers/practitioners, (system) designers, database administrators, technical experts, researcher"
+        "definition": "Technical professionals who design, build, fine-tune, deploy, or maintain the AI system",
+        "description": "AI (developers/software engineers), data scientist/engineer, ML model engineers/practitioners/trainers, (system) designers, database administrators, technical experts, researcher"
       },
       {
         "value": "Guardian",
         "label": "Guardian",
-        "definition": "Individuals and institutions that set the rules, policies, and ethical guardrails for AI systems",
+        "definition": "Individuals and institutions that set the rules, policies, and ethical guardrails for AI systems and govern, supervise, regulate, audit, or enforce AI accountability & ethics",
         "description": "regulator, policy-maker, government, (independent) auditor, AI ethicist, moral philosophers, research ethics committees, lawyers, judges, courts, parole board, governing body, supervisor, evaluator, analyst/auditor"
       },
       {
         "value": "Knowledge provider",
         "label": "Knowledge provider",
-        "definition": "People who provide the specialized data, expertise, or judgment used to train and validate the AI",
+        "definition": "People who provide the specialized data, expertise, performance benchmarks, or judgment used to train and validate the AI",
         "description": "(domain/subject matter/medical/legal) experts, annotator, labeler, manual coder, survey participant, crowd workers, human subjects, human as inspiration, human as benchmark / guide, teacher"
       },
       {
         "value": "Stakeholder",
         "label": "Stakeholder",
-        "definition": "The broader community or groups indirectly impacted by the AI's deployment and societal consequence", 
+        "definition": "The broader/larger community or social groups indirectly impacted by the AI's deployment and societal consequences", 
         "description": "community, citizens, public, families, employees, company stakeholders, (vulnerable/protected) groups, society"
       }
     ]
@@ -298,3 +298,5 @@
     ]
   }
 }
+
+

@@ -175,8 +175,10 @@ function AnnotationPage() {
         </div>
       </header>
 
+<div className='general-reminder'>Use full-text papers to code AI and human influences. Use abstracts for the other dimensions, but refer to the full text whenever you are unsure.</div>
 
       <div className="annotation-content">
+        
         <div className="paper-info-section">
           <div className="paper-info-card">
 
@@ -220,7 +222,7 @@ function AnnotationPage() {
                 {error}
               </div>
             )}
-
+        
             <form className="annotation-form">
               {Object.keys(annotationSchema).map(fieldKey => {
                 const field = annotationSchema[fieldKey];
