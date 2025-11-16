@@ -120,6 +120,7 @@ function AnnotationPage() {
       clearTimeout(saveTimeoutRef.current);
     }
     await saveAnnotation('completed');
+    handleNavigation('next');
   };
 
   const handleNavigation = (direction) => {
@@ -137,9 +138,22 @@ function AnnotationPage() {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
+      console.log(e.key)
       if ((e.ctrlKey || e.metaKey) && e.key === 's') {
         e.preventDefault();
         handleManualSave();
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        e.preventDefault();
+        handleComplete();
+      }
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNavigation('next');
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handleNavigation('prev');
       }
     };
 
@@ -332,8 +346,9 @@ function AnnotationPage() {
             >
               ← Previous Paper
             </button>
-            <div className="keyboard-hint">
-              Tip: Press Ctrl+S (Cmd+S on Mac) to save
+            <div className="general-reminder">
+              Tip: Press Ctrl+S (Cmd+S on Mac) to save <br/>
+              Ctrl/Cmd+Enter to mark as complete; ←/→ to navigate papers.
             </div>
             <button
               onClick={() => handleNavigation('next')}

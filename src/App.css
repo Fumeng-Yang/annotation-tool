@@ -90,9 +90,9 @@ body {
 }
 
 .btn-nav {
-  background-color: #f8f9fa;
+  background-color: #f1f1f1;
   color: #333;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
 }
 
 .btn-nav:hover:not(:disabled) {
