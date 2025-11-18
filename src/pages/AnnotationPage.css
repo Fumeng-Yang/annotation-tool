@@ -175,7 +175,7 @@
 
 .optional-label {
   font-size: 0.85rem;
-  color: #999;
+  color: #464646;
   font-weight: normal;
   margin-left: 4px;
 }
@@ -285,9 +285,9 @@
 .reference-badge-matched {
   padding: 5px 5px;
   border-radius: 4px;
-  background-color: #cbe0f7;
+  background-color: #d7e9fc;
   color: #1a355c;
-  border: 1px solid #cbe0f7 !important;
+  border: 1px solid #d7e9fc !important;
   font-size: 0.85rem;
   font-weight: 500;
 }
@@ -295,24 +295,34 @@
 .reference-badge-not-matched {
   padding: 5px 5px;
   border-radius: 4px;
-  background-color: #fae7eb !important;
-  color: #721c24;
-  border: 1px solid #fae7eb !important;
+  background-color: #fae7f0 !important;
+  color: #985268;
+  border: 1px solid #fae7f0 !important;
   font-size: 0.85rem;
   font-weight: 500;
 }
 
 .reference-matched {
-  background-color: #cbe0f7 !important;
+  background-color: #d7e9fc !important;
   color: #1a355c;
-  border: 1px solid #cbe0f7 !important;
+  border: 1px solid #d7e9fc !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.reference-badge-notexist {
+   padding: 5px 5px;
+  border-radius: 4px;
+  background-color: #ff6f6f !important;
+  color: #ffffff;
+  border: 1px solid #ff6f6f !important;
   font-size: 0.9rem;
   font-weight: 500;
 }
 
 .reference-not-matched {
   background-color: #f8f6df !important;
-  color: #721c24;
+  color: #726927;
   border: 1px solid #f8f6df !important;
   font-size: 0.9rem;
   font-weight: 500;
@@ -333,4 +343,11 @@
   /* font-weight: 500; */
   line-height: 1.4;
   text-align: center;
+}
+
+.vote_count{
+  font-weight: 400 !important;
+  font-size: 0.7rem !important;
+  vertical-align: baseline;
+  opacity: 0.8;
 }

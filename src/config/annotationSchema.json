@@ -32,6 +32,16 @@
         "value": "Dataset/Benchmark contributions",
         "label": "Dataset/Benchmark contributions",
         "definition": "new datasets, benchmarks, and evaluation resources"
+      },
+      {
+        "value": "Survey contributions",
+        "label": "Survey contributions",
+        "definition": "literature reviews and synthesis papers, overview of a field"
+      },
+      {
+        "value": "Vision contributions",
+        "label": "Vision contributions",
+        "definition": "position papers, future directions, and perspective pieces"
       }
     ]
   },
@@ -77,7 +87,7 @@
       {
         "value": "Environment / Resources / Energy",
         "label": "Environment / Resources / Energy",
-        "definition": "wate, food,  agriculture, fishery, water, food, energy, electricity, environment"
+        "definition": "water, food,  agriculture, fishery, water, food, energy, electricity, environment"
       },
       {
         "value": "Defense / Military / Emergency",
@@ -126,7 +136,7 @@
         "value": "Explaining",
         "label": "Explaining",
         "definition": "Translates opaque processes into human-readable justifications. \"Why did this happen?\"",
-        "description": "explainer, reasoner"
+        "description": "XAI or AI provides (visual/textual/causal/counterfactual/natural-language...) explanations, reasoning, justifications"
       },
       {
         "value": "Advising",
@@ -204,7 +214,7 @@
     ]
   },
   "ai_influence": {
-    "label": "AI Influence on humans",
+    "label": "AI Influence on humans (full paper)",
     "definition": "The degree to which AI influences the final decision outcome",
     "options": [
       {
@@ -241,11 +251,16 @@
         "value": "Shape ethical norms",
         "label": "Shape ethical norms",
         "definition": "reducing bias, ensuring fairness, detecting direct biases, detecting indirect biases, increasing agreement with model biases, increasing acceptance of unethical advice, reinforcing perceived fairness, ... "
+      },
+      {
+        "value": "no such info",
+        "label": "no such info",
+        "definition": "No information available regarding AI influence on humans in the paper"
       }
     ]
   },
   "human_influence": {
-    "label": "Human Influence on AI",
+    "label": "Human Influence on AI (full paper)",
     "definition": "How human influence AI",
     "options": [
       {
@@ -264,6 +279,11 @@
         "value": "Shape AI for accountability",
         "label": "Shape AI for accountability",
         "definition": "Humans have limited influence on the decision"
+      },
+      {
+        "value": "no such info",
+        "label": "no such info",
+        "definition": "No information available regarding human influence on AI in the paper"
       }
     ]
   },
@@ -287,13 +307,18 @@
         "value": "Organizational",
         "label": "Organizational",
         "definition": "decisions made within or on behalf of organizations",
-        "description": "emergency department management, COVID vaccine allocation, supply chain management,  aviation operations, manage workforce, recruit students, game management, manage suppliers/retailers, code review, emergency facility planning"
+        "description": "emergency department management,  COVID vaccine allocation, supply chain management, aviation operations, manage workforce, recruit students, game management, manage suppliers/retailers, code review, emergency facility planning"
       },
       {
         "value": "Institutional",
         "label": "Institutional",
         "definition": "decisions that establish standards or norm",
-        "description": " governance frameworks and legitimacy of algorithmic decisions in markets/public services/schools, social media filtering, digital twins,  climate forecasts, develop defensive strategies under attack,  air defense planning"
+        "description": "governance frameworks and legitimacy of algorithmic decisions in markets/public services/schools, social media filtering, digital twins,  climate forecasts, develop defensive strategies under attack,  air defense planning"
+      },
+      {
+        "value": "no such info",
+        "label": "no such info",
+        "definition": "No specific information available regarding decision type in the paper"
       }
     ]
   }

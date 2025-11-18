@@ -35,10 +35,13 @@ function MultiSelect({ options, reference = [], value = [], onChange, placeholde
     return option ? option.label : optionValue;
   };
 
-  const filteredOptions = options.filter(option =>
-    option.label.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    option.description.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredOptions = options.filter(option => {
+    return (
+      option.label.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (option.definition && option.definition.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (option.description && option.description.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+  });
 
   return (
     <div className="multi-select" ref={dropdownRef}>
@@ -54,7 +57,8 @@ function MultiSelect({ options, reference = [], value = [], onChange, placeholde
 
             let colorClass = reference && Array.isArray(reference) && reference.length > 0 ? 'reference-not-matched' : ''
         
-            if(reference && reference.includes(val)){
+            // console.log('Reference:', reference);
+            if(reference && reference.find(vval => vval.includes(val))){
               colorClass = 'reference-matched'
             } 
             return ( <span key={val} className={`selected-tag ${colorClass}`}>

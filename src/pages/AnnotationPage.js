@@ -20,6 +20,8 @@ function AnnotationPage() {
   const [showPaper, setShowPaper] = useState(true);
   const [error, setError] = useState('');
 
+  const baked_decision_type=["2-10251","2-104","2-10728","2-10923","2-11124","2-11486","2-11526","2-11649","2-1182","2-1195","2-1254","2-14204","2-14389","2-14897","2-15360","2-15366","2-15372","2-15374","2-15393","2-15407","2-15451","2-15463","2-15468","2-15469","2-15473","2-15534","2-1555","2-15558","2-15559","2-15586","2-15593","2-15646","2-16029","2-1608","2-1686","2-16953","2-16979","2-17012","2-17146","2-1809","2-187","2-1901","2-19326","2-19747","2-19768","2-19772","2-19783","2-19789","2-19802","2-19846","2-19853","2-19857","2-19872","2-19874","2-19915","2-19916","2-19917","2-19920","2-19939","2-19956","2-20181","2-2108","2-21106","2-2198","2-2205","2-2215","2-2228","2-2231","2-2240","2-2244","2-2250","2-2250","2-2256","2-22654","2-22809","2-22988","2-23404","2-2364","2-2368","2-23749","2-23851","2-2426","2-2478","2-24902","2-24996","2-24996","2-25136","2-2518","2-25255","2-25498","2-2552","2-2557","2-26105","2-26120","2-26128","2-26473","2-26784","2-27018","2-27074","2-27187","2-27699","2-27699","2-28227","2-29174","2-29847","2-30375","2-30800","2-31003","2-31838","2-3363","2-3368","2-3375","2-3377","2-33969","2-3407","2-3420","2-3427","2-3442","2-3448","2-3456","2-3477","2-3482","2-3488","2-3491","2-3509","2-3510","2-3515","2-3552","2-3573","2-3583","2-3601","2-36070","2-36160","2-3623","2-3630","2-3646","2-3649","2-3657","2-3659","2-3675","2-3748","2-38195","2-38243","2-38290","2-38295","2-38313","2-38327","2-38360","2-38432","2-38448","2-38469","2-38472","2-38494","2-38528","2-38528","2-38612","2-38754","2-38898","2-38915","2-38930","2-38984","2-39035","2-39286","2-39372","2-39422","2-39456","2-39465","2-39516","2-407","2-4566","2-4580","2-4587","2-4590","2-4600","2-4606","2-4611","2-4659","2-4664","2-4669","2-4671","2-4677","2-4711","2-4742","2-4800","2-4830","2-4841","2-4861","2-4877","2-488","2-6697","2-6700","2-6799","2-6975","2-7291","2-7543","2-7548","2-7583","2-7751","2-7832","2-7951","2-7977","2-7977","2-8150","2-8227","2-8797","2-8918","2-9542","2-9630","2-9771","2-9873","2-9998"]
+  
   const saveTimeoutRef = useRef(null);
 
   useEffect(() => {
@@ -138,7 +140,7 @@ function AnnotationPage() {
 
   useEffect(() => {
     const handleKeyPress = (e) => {
-      console.log(e.key)
+      // console.log(e.key)
       if ((e.ctrlKey || e.metaKey) && e.key === 's') {
         e.preventDefault();
         handleManualSave();
@@ -189,10 +191,10 @@ function AnnotationPage() {
         </div>
       </header>
 
-<div className='general-reminder'>Use full-text papers to code AI and human influences. Use abstracts for the other dimensions, but refer to the full text whenever you are unsure.</div>
+      <div className='general-reminder'>Use full-text papers to code AI and human influences. Use abstracts for the other dimensions, but refer to the full text whenever you are unsure.</div>
 
       <div className="annotation-content">
-        
+
         <div className="paper-info-section">
           <div className="paper-info-card">
 
@@ -236,13 +238,14 @@ function AnnotationPage() {
                 {error}
               </div>
             )}
-        
+
             <form className="annotation-form">
               {Object.keys(annotationSchema).map(fieldKey => {
                 const field = annotationSchema[fieldKey];
                 let reference = null, reference2 = null, merged = [];
 
                 if (paper.annotations && paper.annotations.reference && paper.annotations.reference != '' && references) {
+                  console.log(references)
                   reference = references.filter(ref => ref.id === paper.id)[0].annotations;
                   merged = reference[fieldKey] ? [...reference[fieldKey]] : [];
                   if (references.filter(ref => ref.id === paper.id)[1]) {
@@ -269,6 +272,7 @@ function AnnotationPage() {
                       <label>
                         {field.label}
                         <span className="field-definition" title={field.definition}>ⓘ</span>
+                        <span className=""> {fieldKey === 'decision_types' ? baked_decision_type.includes(paper.id) ? '(think twice)' : '' : ''}</span>
                       </label>
                       <MultiSelect
                         options={field.options}
@@ -281,10 +285,16 @@ function AnnotationPage() {
                     {reference && <div className='form-group-sub'>
                       {reference[fieldKey] && reference[fieldKey].map((val, idx) => {
                         let label = "not-matched";
-                        if (annotations[fieldKey].find(v => v === val)) {
+                        if (annotations[fieldKey].find(v => val.includes(v))) {
                           label = "matched";
+                        } else {
+                          if (!field.options.find(opt => val.includes(opt.value))) {
+                            label = "notexist"
+                          }
                         }
-                        return (<span key={idx} className={`reference-badge-${label}`}>{val}</span>)
+                        let vals = val.split(' (')
+                        let val1 = vals[0], number = vals.length > 1 ? ('(' + vals[1].substring(0, 1) + ')') : "";
+                        return (<span key={idx} className={`reference-badge-${label}`}>{val1} <font className="vote_count">{number}</font></span>)
                       })}
                       <span className="model-name">{reference.model}</span>
                     </div>
@@ -292,10 +302,16 @@ function AnnotationPage() {
                     {reference2 && <div className='form-group-sub'>
                       {reference2[fieldKey] && reference2[fieldKey].map((val, idx) => {
                         let label = "not-matched";
-                        if (annotations[fieldKey].find(v => v === val)) {
+                        if (annotations[fieldKey].find(v => val.includes(v))) {
                           label = "matched";
+                        }else {
+                          if (!field.options.find(opt => val.includes(opt.value))) {
+                            label = "notexist"
+                          }
                         }
-                        return (<span key={idx} className={`reference-badge-${label}`}>{val}</span>)
+                        let vals = val.split(' (')
+                        let val1 = vals[0], number = vals.length > 1 ? ('(' + vals[1].substring(0, 1) + ')') : "";
+                        return (<span key={idx} className={`reference-badge-${label}`}>{val1} <font className="vote_count">{number}</font></span>)
                       })}
                       <span className="model-name">{reference2.model}</span>
                     </div>
@@ -347,7 +363,7 @@ function AnnotationPage() {
               ← Previous Paper
             </button>
             <div className="general-reminder">
-              Tip: Press Ctrl+S (Cmd+S on Mac) to save <br/>
+              Tip: Press Ctrl+S (Cmd+S on Mac) to save <br />
               Ctrl/Cmd+Enter to mark as complete; ←/→ to navigate papers.
             </div>
             <button
